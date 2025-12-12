@@ -1,5 +1,6 @@
-  ---
-  League of Legends Gold Statistical Analysis
-  Roman Respicio
-  ---
-Project for DSC 80 at UCSD
+# League of Legends:  Gold Statistical Analysis
+
+**Author:** Roman Respicio
+Project for DSC80 at UCSD
+
+---

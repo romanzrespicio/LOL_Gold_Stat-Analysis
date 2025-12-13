@@ -18,8 +18,19 @@ Prior to any cleaning, the data set contains 1,115,664 rows and 164 columns. Eac
 
 Here is an introduction to the key columns of focus that will be used to answer the central question to our project... 
 
-- 'gamelength': Column containing integer values that represent the length of each match to the nearest minute. This column will be used to standardize other in-game metrics since those metrics are largely dependent on the length of a game.
+- 'gamelength': Column containing integer values that represent the length of each match to the nearest minute.
 - 'position': Denotes the player position in a singular game. Possible values are 'top', 'jng', 'mid', 'bot', and 'sup'. In a singular game, all values are included and only one of each value is included.
+- 'result': Column indicating whether an individual player 'won' or 'lost' the specific match. Contains binary values where 1 indicates a match win and 0 indicates a match loss.
+- 'kills': Counts the number of enemy champions killed in a particular match by a particular player. Contains integer values.
+- 'deaths': Counts the number of occurrences where a player is killed (either by enemy champions, minions, or turrets) in a particular match. Contains integer values.
+- 'assists': Counts the number of occurrences where a player contributes to the kill of an enemy champion without securing the kill themselves. Contains integer values.
+- 'damagetochampions': Measures the amount of damage an individual player delivers to enemy champions (opponents). This column contains floating-point values.
+- 'minionkills': Counts the number of minions that a particular player eliminates in a single match. The column contains integer values.
+- 'monsterkills': Counts the number of monsters (rather than minions, spawns in the jungle of the map) that a player kills in a particular match. Contains integer values.
+- 'totalgold': Measures the total amount of gold a player earns regardless of how it is earned (champion kills, minion kills, monster kills, turret plating, etc). The column contains floating-point values.
+- 'total cs': Measures the 'creep score' of a player, which refers to the total number of minions and jungle monsters that a player eliminates. 'cs' is often used as a measure of farm. Contains floating-point values.
+- 'goldat25': Measures the total amount of gold a player reaches at 25 minutes of the game. Contains floating-point values.
+- 'gold_bins': Column created based on 'totalgold' to cut the dataset into gold range categories of 3k (0-3k, 3k-6k, etc) with the right-hand value not being included. This column includes strings that represent categories later used in bivariate analyses.
 
-
+## Cleaning Up the Data for the Analyses
 There are 929,720 rows and 18 columns in our cleaned data

@@ -91,7 +91,40 @@ Bivariate analysis was performed on the 'gold_bins' column and the 'damagetocham
   frameborder="0"
 ></iframe>
 
-The box plot appears to reveal increasing measures of center of damage as gold ranges increase. This suggests a positive correlation between gold and damage to enemy champions, which poses gold as an important statistic that is important to player performance when measured by damage.
+The box plot appears to reveal increasing measures of center of damage as gold ranges increase. This suggests a positive correlation between gold and damage to enemy champions, which poses gold as an important statistic that is important to player performance when measured by damage. However, it is also important to note that there are many outliers, especially in the higher ranges of damage, that are past the upper fence of each box plot. The presence of these outliers implies that gold is not the only determining factor of damage to champions. It is also worth noting that the spread of the data as bins increase seem to increase as well.
 
+## Aggregate Analysis
 
+Here are some interesting aggregates in the dataset...
+
+<div class="table-wrapper" markdown="1">
+
+|   Avg Damage |   Avg Kills |   Avg Deaths |   Avg Assists |   minionkills |   monsterkills |
+|-------------:|------------:|-------------:|--------------:|--------------:|---------------:|
+|       1039.6 |         0.1 |          0.9 |           0.3 |          19.1 |            3.6 |
+|       1063   |         0.2 |          0.2 |           0.8 |          22.2 |            4.5 |
+|       3843.9 |         0.3 |          4.1 |           2.8 |          31.7 |            3.7 |
+|       3636.4 |         0.5 |          1.5 |           9   |          27.9 |            0.8 |
+|       6871.6 |         0.8 |          4.1 |           3.8 |          79.7 |           29.2 |
+|       5608.1 |         1   |          1.9 |          11.6 |          38   |            7   |
+|      11803.4 |         1.7 |          3.8 |           3.7 |         167.2 |           41.7 |
+|      10768.6 |         2.7 |          1.8 |           9.4 |         107.2 |           50.6 |
+|      17409.2 |         2.8 |          3.6 |           4.5 |         241.3 |           36.9 |
+|      16895.5 |         4.4 |          1.8 |           8.1 |         197.1 |           48   |
+|      23951   |         4   |          3.6 |           5.4 |         301.8 |           36.6 |
+|      23058.3 |         5.8 |          2   |           7.8 |         269.7 |           40.2 |
+|      31297.2 |         5.2 |          3.5 |           6.1 |         357.7 |           40.3 |
+|      30141.4 |         6.9 |          2.3 |           7.7 |         332.9 |           41.1 |
+|      38407.2 |         6.1 |          3.4 |           6.5 |         413.7 |           45.6 |
+|      38082.6 |         7.7 |          2.5 |           7.9 |         390.7 |           45.8 |
+|      45769.5 |         7.2 |          3.6 |           7.1 |         469.2 |           48.8 |
+|      46290.1 |         8.2 |          2.7 |           7.9 |         449.3 |           53.4 |
+|      49066.8 |         6.7 |          3   |           6.9 |         531.5 |           54.6 |
+|      54188.4 |         8   |          2.9 |           8.2 |         514.2 |           62.2 |
+|      64872.9 |         7.4 |          2.9 |           7.2 |         646.5 |           71.8 |
+|      54723.9 |         6.6 |          2.9 |           7   |         623.7 |           66   |
+
+</div>
+
+This aggregate data table groups the dataset by gold-range bins and game result (0 indicating a loss and 1 indicating a win), then computes the mean values of each of the shown variables. Looking at the aggregated statistics, one can observe that as the gold range increases, values of average damage, average kills, minionkills, and monsterkills seem to rise. The columns, average deaths and average assists, do not seem to clearly show this same pattern just looking at the computed means. There does not seem to be significant differences in values between games that are lost versus won.
 

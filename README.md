@@ -61,7 +61,7 @@ Univariate analysis was first performed on the 'totalgold' column of our dataset
 <iframe
   src="assets/unigoldanal.html"
   width="800"
-  height="400"
+  height="450"
   frameborder="0"
 ></iframe>
 
@@ -69,12 +69,20 @@ The plotted histogram of total gold earned in a game shows that the distribution
 
 ## Univariate Analysis - Damage to Champions
 
+Next, we perform the same analysis on the 'damagetochampions' column of the dataset.
+
 <iframe
   src="assets/unigoldanal2.html"
   width="800"
-  height="400"
+  height="450"
   frameborder="0"
 ></iframe>
 
 The plotted histogram shows that total damage to enemy champions is not normally distributed. The data appears to have a right skew, suggesting the data may not be well-behaved.
+
+## Bivariate Analysis - Gold and Damage 
+
+Bivariate analysis was performed on the 'gold_bins' column and the 'damagetochampions' column to explore the relationship between increasing levels of gold with the distribution of damage to enemy champions. This analysis was done by generating side-by-side box plots of each gold bin category. Gold amounts were binned into 3k gold ranges from 0 to 30k, then 30k+ gold amounts.
+
+
 

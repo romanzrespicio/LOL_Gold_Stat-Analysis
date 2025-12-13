@@ -40,3 +40,12 @@ To begin preparing our dataset, we first keep only relevant columns of the origi
 After this step of cleaning up the dataset, there are 929,720 rows and 12 columns. However, since scatter plots including nearly a million values of data were very difficult to load/read, a new categorical column was created - 'gold_bins'. To create this column, the 'totalgold' column was cut using pandas into bins of size 3,000, and each player was assigned to their corresponding range.
 
 The cleaned and prepared dataset contains 929720 rows and 13 columns. Below is the head of the dataframe...
+
+
+|   gamelength | position   |   result |   kills |   deaths |   assists |   damagetochampions |   minionkills |   monsterkills |   totalgold |   total cs |   goldat25 | gold_bins   |
+|-------------:|:-----------|---------:|--------:|---------:|----------:|--------------------:|--------------:|---------------:|------------:|-----------:|-----------:|:------------|
+|         1924 | top        |        1 |       3 |        0 |        13 |               12569 |           209 |              0 |       11499 |        209 |       8735 | 9k-12k      |
+|         1924 | jng        |        1 |       0 |        4 |        14 |                7067 |            24 |             91 |       10113 |        115 |       7122 | 9k-12k      |
+|         1924 | mid        |        1 |      10 |        1 |         7 |               27699 |           247 |             29 |       14564 |        276 |       9312 | 12k-15k     |
+|         1924 | bot        |        1 |       8 |        0 |         9 |               17296 |           250 |             32 |       14210 |        282 |      10279 | 12k-15k     |
+|         1924 | sup        |        1 |       0 |        0 |        15 |                9217 |            11 |              0 |        9045 |         11 |       6277 | 9k-12k      |

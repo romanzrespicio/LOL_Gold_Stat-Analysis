@@ -137,3 +137,58 @@ Here are some interesting aggregates in the dataset...
 
 This aggregate data table groups the dataset by gold-range bins and game result (0 indicating a loss and 1 indicating a win), then computes the mean values of each of the shown variables. Looking at the aggregated statistics, one can observe that as the gold range increases, values of average damage, average kills, minionkills, and monsterkills seem to rise. The columns, average deaths and average assists, do not seem to clearly show this same pattern just looking at the computed means. There does not seem to be significant differences in values between games that are lost versus won.
 
+### Assessment of Missingness
+
+## NMAR Analysis
+
+In the original dataset, the ban columns - 'ban1', 'ban2', 'ban3', 'ban4', 'ban5' - are Not Missing at Random (NMAR). Before each match, each League of Legends 'draft' game includes a character pick phase and a ban phase. During this ban phase, players themselves decide who to ban or perhaps even choose whether they want to ban a character at all. Though unlikely during professional play, occasionally a player may choose not to ban a character at all. Thus, the missingness of values in these columns depends on the column itself. Additional data that may make this data MAR is a column that indicates whether two players on the same team tried to ban the same character. In this case, one of the players with the same ban on the same team would not have data in their ban slot. 
+
+## Missingness Dependency
+
+In this section, we are going to test the missingness of the 'goldat25' column. We are assessing if this column is dependent on the columns 'gamelength' and 'result'. The significance level chosen for both permutation tests will be the standard 0.05.
+
+**Null Hypothesis:** The distribution of 'gamelength' when 'goldat25' is missing is the same when 'goldat25' is not missing.
+
+**Alternative Hypothesis:** The distribution of 'gamelength' when 'goldat25' is missing is **not** the same when 'goldat25' is not missing.
+
+To test the hypotheses, the test statistic chosen is the Kolmogorov-Smirnov statistic.
+
+<iframe
+  src="assets/permtest1.html"
+  width="800"
+  height="450"
+  frameborder="0"
+></iframe>
+
+One can observe from the graph that the distributions are not the same. Furthermore, we have a calculated p-value that is approximately 0 and less than our significance level of 0.05. Therefore, we **reject the null hypothesis** in favor of the alternative hypothesis. Thus, 'goldat25' seems to be Missing at Random with dependency on the 'gamelength column.
+
+Next, we perform another permutation test to test 'goldat25' column missingness dependency on the 'result' column.
+
+**Null Hypothesis:** The missingness of 'goldat25' is independent of 'result'.
+
+**Alternative Hypothesis:** The missingness of 'goldat25' is dependent on 'result'.
+
+To test the hypotheses, the test statistic chosen is the absolute difference in means.
+
+<iframe
+  src="assets/permtest2"
+  width="800"
+  height="450"
+  frameborder="0"
+></iframe>
+
+Our calculated p-value appears to be 0.332 from the permutation test. Since this value is > our significance level of 0.05, we **fail to reject** our null hypothesis. The missingness of 'goldat25' does not appear to be MAR dependent on the 'result' column
+
+### Hypothesis Testing
+
+The goal of our hypothesis test is to explore the possibility of a significant difference in average damage between players who accumulate "low" amounts of gold (less than or equal to 15k) versus players who accumulate "high" amounts of gold (over 15k). This test is significant because it potentially uncovers the impact of gold on other game-related statitics and potentially game outcome. This hypothesis test will be run with a significance level of 0.05.
+
+**Null Hypothesis:** The average champion damage is the same between players who accumulated "high" amounts of gold versus players who accumulated "low" amounts of gold.
+
+**Alternative Hypothesis:** The average champion damage is higher among players who accumulated "high" amounts of gold than players who accumulated "low" amounts of gold.
+
+**Test Statistic:** Signed mean difference of average champion damage (players with "high" amounts of gold - players with "low" amounts of gold.
+
+Running the permutation test reveals that the observed signed mean difference of damage (players accumulating "high" - "low" amounts of gold) was 14,195.59 damage points. The resulting p-value is approximately 0 and less than our chosen significant level. Therefore, we **reject the null hypothesis** in favor of the alternative hypothesis. Players who accumulate "high" amounts of gold (over 15000) may do more damage than players who accumulate "low" amounts of gold (less than or equal to 15000).
+
+

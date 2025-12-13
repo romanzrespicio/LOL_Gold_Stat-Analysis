@@ -85,7 +85,7 @@ The plotted histogram shows that total damage to enemy champions is not normally
 Bivariate analysis was performed on the 'gold_bins' column and the 'damagetochampions' column to explore the relationship between increasing levels of gold with the distribution of damage to enemy champions. This analysis was done by generating side-by-side box plots of each gold bin category. Gold amounts were binned into 3k gold ranges from 0 to 30k, then 30k+ gold amounts.
 
 <iframe
-  src="assets/binalgolddam.html"
+  src="assets/bianalgolddam.html"
   width="800"
   height="450"
   frameborder="0"

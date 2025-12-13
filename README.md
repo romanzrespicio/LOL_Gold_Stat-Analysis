@@ -54,7 +54,7 @@ The cleaned and prepared dataset contains 929720 rows and 13 columns. Below is t
 
 The cleaned dataset contains only the relevant columns which will be used in **hypothesis testing**, testing for **missingness**, and the **prediction model**. Depending on the type of analysis, the dataframe will be further altered to comply to any necessary steps (e.g. one-hot encoding the position column for prediction model).
 
-## Univariate Analysis - Gold
+### Univariate Analysis - Gold
 
 Univariate analysis was first performed on the 'totalgold' column of our dataset.
 
@@ -67,7 +67,7 @@ Univariate analysis was first performed on the 'totalgold' column of our dataset
 
 The plotted histogram of total gold earned in a game shows that the distribution of gold is nearly normal with a slight right skew. The normal spread reveals that the data is balanced and follows the Central Limit Theorem.
 
-## Univariate Analysis - Damage to Champions
+### Univariate Analysis - Damage to Champions
 
 Next, we perform the same analysis on the 'damagetochampions' column of the dataset.
 
@@ -80,7 +80,7 @@ Next, we perform the same analysis on the 'damagetochampions' column of the data
 
 The plotted histogram shows that total damage to enemy champions is not normally distributed. The data appears to have a right skew, suggesting the data may not be well-behaved.
 
-## Bivariate Analysis - Gold and Damage 
+### Bivariate Analysis - Gold and Damage 
 
 Bivariate analysis was performed on the 'gold_bins' column and the 'damagetochampions' column to explore the relationship between increasing levels of gold with the distribution of damage to enemy champions. This analysis was done by generating side-by-side box plots of each gold bin category. Gold amounts were binned into 3k gold ranges from 0 to 30k, then 30k+ gold amounts.
 
@@ -102,7 +102,7 @@ Bivariate analysis was performed on the 'gold_bins' column and the 'damagetocham
 
 The box plot appears to reveal increasing measures of center of damage as gold ranges increase. This suggests a positive correlation between gold and damage to enemy champions, which poses gold as an important statistic that is important to player performance when measured by damage. However, it is also important to note that there are many outliers, especially in the higher ranges of damage, that are past the upper fence of each box plot. The presence of these outliers implies that gold is not the only determining factor of damage to champions. It is also worth noting that the spread of the data as bins increase seem to increase as well.
 
-## Aggregate Analysis
+### Aggregate Analysis
 
 Here are some interesting aggregates in the dataset...
 
@@ -137,13 +137,13 @@ Here are some interesting aggregates in the dataset...
 
 This aggregate data table groups the dataset by gold-range bins and game result (0 indicating a loss and 1 indicating a win), then computes the mean values of each of the shown variables. Looking at the aggregated statistics, one can observe that as the gold range increases, values of average damage, average kills, minionkills, and monsterkills seem to rise. The columns, average deaths and average assists, do not seem to clearly show this same pattern just looking at the computed means. There does not seem to be significant differences in values between games that are lost versus won.
 
-### Assessment of Missingness
+## Assessment of Missingness
 
-## NMAR Analysis
+### NMAR Analysis
 
 In the original dataset, the ban columns - 'ban1', 'ban2', 'ban3', 'ban4', 'ban5' - are Not Missing at Random (NMAR). Before each match, each League of Legends 'draft' game includes a character pick phase and a ban phase. During this ban phase, players themselves decide who to ban or perhaps even choose whether they want to ban a character at all. Though unlikely during professional play, occasionally a player may choose not to ban a character at all. Thus, the missingness of values in these columns depends on the column itself. Additional data that may make this data MAR is a column that indicates whether two players on the same team tried to ban the same character. In this case, one of the players with the same ban on the same team would not have data in their ban slot. 
 
-## Missingness Dependency
+### Missingness Dependency
 
 In this section, we are going to test the missingness of the 'goldat25' column. We are assessing if this column is dependent on the columns 'gamelength' and 'result'. The significance level chosen for both permutation tests will be the standard 0.05.
 
@@ -179,7 +179,7 @@ To test the hypotheses, the test statistic chosen is the absolute difference in 
 
 Our calculated p-value appears to be 0.332 from the permutation test. Since this value is > our significance level of 0.05, we **fail to reject** our null hypothesis. The missingness of 'goldat25' does not appear to be MAR dependent on the 'result' column
 
-### Hypothesis Testing
+## Hypothesis Testing
 
 The goal of our hypothesis test is to explore the possibility of a significant difference in average damage between players who accumulate "low" amounts of gold (less than or equal to 15k) versus players who accumulate "high" amounts of gold (over 15k). This test is significant because it potentially uncovers the impact of gold on other game-related statitics and potentially game outcome. This hypothesis test will be run with a significance level of 0.05.
 

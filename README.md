@@ -84,12 +84,15 @@ The plotted histogram shows that total damage to enemy champions is not normally
 
 Bivariate analysis was performed on the 'gold_bins' column and the 'damagetochampions' column to explore the relationship between increasing levels of gold with the distribution of damage to enemy champions. This analysis was done by generating side-by-side box plots of each gold bin category. Gold amounts were binned into 3k gold ranges from 0 to 30k, then 30k+ gold amounts.
 
-<iframe
-  src="assets/bianalgolddam.html"
-  width="1000"
-  height="600"
-  frameborder="0"
-></iframe>
+<div style="transform: scale(0.8); transform-origin: top left; width: 1250px;">
+  <iframe
+    src="assets/bianalgolddam.html"
+    width="1250"
+    height="750"
+    frameborder="0"
+    style="border: none;"
+  ></iframe>
+</div>
 
 The box plot appears to reveal increasing measures of center of damage as gold ranges increase. This suggests a positive correlation between gold and damage to enemy champions, which poses gold as an important statistic that is important to player performance when measured by damage. However, it is also important to note that there are many outliers, especially in the higher ranges of damage, that are past the upper fence of each box plot. The presence of these outliers implies that gold is not the only determining factor of damage to champions. It is also worth noting that the spread of the data as bins increase seem to increase as well.
 

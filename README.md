@@ -12,3 +12,14 @@ This project investigates the relationship of gold-related metrics to other in-g
 
 Answering this question is significant because understanding the impact of gold on other player metrics can influence and enhance farming strategies, game objectives/priorities throughout the game, and much more.
 
+### Introduction of Columns
+
+Prior to any cleaning, the data set contains 1,115,664 rows and 164 columns. Each match is represented by 12 columns - 10 player columns (5 for each team) and 2 additional columns that are team-based. 
+
+Here is an introduction to the key columns of focus that will be used to answer the central question to our project... 
+
+- 'gamelength': Column containing integer values that represent the length of each match to the nearest minute. This column will be used to standardize other in-game metrics since those metrics are largely dependent on the length of a game.
+- 'position': Denotes the player position in a singular game. Possible values are 'top', 'jng', 'mid', 'bot', and 'sup'. In a singular game, all values are included and only one of each value is included.
+
+
+There are 929,720 rows and 18 columns in our cleaned data

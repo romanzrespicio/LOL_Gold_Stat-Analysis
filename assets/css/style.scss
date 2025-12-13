@@ -3,35 +3,14 @@
 
 @import "{{ site.theme }}";
 
-<style>
-.scrollable-table-wrapper {
+.table-wrapper {
   overflow-x: auto;
-  margin: 20px 0;
-  border: 1px solid #e1e4e8;
-  border-radius: 6px;
-  padding: 10px;
-  background-color: #f6f8fa;
+  margin: 1em 0;
+  border: 1px solid #ddd;
 }
 
-.scrollable-table-wrapper table {
-  margin: 0;
+.table-wrapper table {
   min-width: 100%;
-  border-collapse: collapse;
+  white-space: nowrap;
+  margin-bottom: 0;
 }
-
-.scrollable-table-wrapper th,
-.scrollable-table-wrapper td {
-  padding: 8px 12px;
-  border: 1px solid #dfe2e5;
-}
-
-.scrollable-table-wrapper th {
-  background-color: #f0f0f0;
-  font-weight: bold;
-}
-</style>
-.scrollable-table-wrapper th {
-  background-color: #f0f0f0;
-  font-weight: bold;
-}
-</style>

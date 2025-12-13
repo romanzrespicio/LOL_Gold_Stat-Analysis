@@ -40,7 +40,7 @@ After this step of cleaning up the dataset, there are 929,720 rows and 12 column
 
 The cleaned and prepared dataset contains 929720 rows and 13 columns. Below is the head of the dataframe...
 
-<div class="scrollable-table-wrapper">
+<div class="table-wrapper" markdown="1">
 
 |   gamelength | position   |   result |   kills |   deaths |   assists |   damagetochampions |   minionkills |   monsterkills |   totalgold |   total cs |   goldat25 | gold_bins   |
 |-------------:|:-----------|---------:|--------:|---------:|----------:|--------------------:|--------------:|---------------:|------------:|-----------:|-----------:|:------------|

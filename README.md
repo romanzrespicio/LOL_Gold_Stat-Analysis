@@ -86,8 +86,8 @@ Bivariate analysis was performed on the 'gold_bins' column and the 'damagetocham
 
 <iframe
   src="assets/bianalgolddam.html"
-  width="800"
-  height="450"
+  width="1000"
+  height="600"
   frameborder="0"
 ></iframe>
 

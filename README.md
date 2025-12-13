@@ -210,5 +210,24 @@ After fitting the data, and making predictions, the classification report shows 
 
 To improve upon the baseline model, we changed the model to a Random Forest Classifier with two new features engineered from prior information. One new feature is the 'monster-to-minion kill ratio', which is the quotient of 'monsterkills' divided by 'minionkills'. The next new feature is 'damage per gold', which is 'damagetochampions' divided by 'totalgold'. These features are relevant because jungle positions obtain most of their farm from monsters. This makes players with higher monster-to-minion kill ratios more likely to be jungle players. Furthermore, most jungle champions are designed to be high-damaging characters that farm less late game and carry team fights. Players with high gold efficiency, determined by higher damage-to-gold ratios are more likely to be jungle. 
 
-These two new features are both quantitative features. However, the distributions do not appear to be normal. A QuantileTransformer is used to normalize the distribution. 
+These two new features are both quantitative features. However, the distributions do not appear to be normal. A QuantileTransformer is used to normalize the distributions of these two new features. To find the optimal hyperparameters of our Random Forest Classifier, A Grid Search with 5 cross fold cross-validation was run on two different hyperparameters - max depth and the number of estimators/trees. For max depth, the values 3, 7, or 12 were tested. For the number of estimators, values 5, 10, 15, 20, 25 were tested. The results of the Grid Search revealed the optimal max depth to be 7 and the optimal number of estimators to be 25.
 
+Using the estimated best parameters found from the gridsearch, both the **accuracy score and F1-score** came out to be **1.00 or 100%** in the classification report! This is a huge, significant improvement in model evaluation from 76% to 100%, revealing that the chosen optimal parameters, as well as the two newly engineered features, led to improved prediction effectiveness of the model. 
+
+### Fairness Analysis
+
+For the fairness analysis test, the question we are going to analyze is "does the model perform similarly for players who earn "high" amounts versus "low" amounts of gold. These categories of gold will use the same definition given earlier where players who accumulate "high amounts of gold are individuals with over 15k and players with "low" amounts of gold are individuals with less than or equal to 15k.
+
+To answer this question, a permutation test is run with significance level = 0.05...
+
+**Group X:** Players with "high" amounts of gold (>15k).
+
+**Group Y:** Players with "low" amounts of gold (<= 15k).
+
+**Null hypothesis:** Our model is fair. Its precision for players with "high" amounts of gold is the same as its precision for players with "low" amounts of gold.
+
+**Alternative hypothesis:** Our model is unfair. Its precision for players with "high" amounts of gold is not the same as its precision for players with "low" amounts of gold.
+
+**Test Statistic:** Absolute difference in precision-score between individuals who have "high" amounts of accumulated gold and "low" amounts of accumulated gold.
+
+After running the permutation test, our resulting p-value is 1.0, which is greater than our significance level of 0.05. Therefore, we fail to reject the null hypothesis. It appears that our model is fair. It predicts players with "high" gold amounts and players with "low" gold amounts with the same precision. This aligns with the classification f1-score report of 100%. If our model predicts with 100% accuracy, then it should not perform worse or better for particular groups.

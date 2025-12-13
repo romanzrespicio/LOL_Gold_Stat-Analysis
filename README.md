@@ -58,4 +58,23 @@ The cleaned dataset contains only the relevant columns which will be used in **h
 
 Univariate analysis was first performed on the 'totalgold' column of our dataset.
 
+<iframe
+  src="assets/unigoldanal.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+The plotted histogram of total gold earned in a game shows that the distribution of gold is nearly normal with a slight right skew. The normal spread reveals that the data is balanced and follows the Central Limit Theorem.
+
+## Univariate Analysis - Damage to Champions
+
+<iframe
+  src="assets/unigoldanal2.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+The plotted histogram shows that total damage to enemy champions is not normally distributed. The data appears to have a right skew, suggesting the data may not be well-behaved.
 

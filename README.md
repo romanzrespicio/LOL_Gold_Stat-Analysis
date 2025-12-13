@@ -61,7 +61,7 @@ Univariate analysis was first performed on the 'totalgold' column of our dataset
 <iframe
   src="assets/unigoldanal.html"
   width="800"
-  height="600"
+  height="400"
   frameborder="0"
 ></iframe>
 
@@ -72,7 +72,7 @@ The plotted histogram of total gold earned in a game shows that the distribution
 <iframe
   src="assets/unigoldanal2.html"
   width="800"
-  height="600"
+  height="400"
   frameborder="0"
 ></iframe>
 

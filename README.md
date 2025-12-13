@@ -191,4 +191,24 @@ The goal of our hypothesis test is to explore the possibility of a significant d
 
 Running the permutation test reveals that the observed signed mean difference of damage (players accumulating "high" - "low" amounts of gold) was 14,195.59 damage points. The resulting p-value is approximately 0 and less than our chosen significant level. Therefore, we **reject the null hypothesis** in favor of the alternative hypothesis. Players who accumulate "high" amounts of gold (over 15000) may do more damage than players who accumulate "low" amounts of gold (less than or equal to 15000).
 
+### Framing a Prediction Problem
+
+The results of the hypothesis test revealed a possible significant impact of total gold and damage to enemy champions. Our prediction problem asks if it is possible to predict a player's position based on in-game gold/farm-related metrics. These statistics include features such as total gold, total cs, minion kills, and monster kills. This prediction problem will focus solely on whether a player is the jungle role, making this problem a **binary classification problem**, and the response variable will be whether or not the player is jungle. Lastly, we are choosing the **F1-Score** as the evaluation metric. F1-score was chosen since in this binary classification problem, jungle players are a minority in the dataset (approximately 1/5). This makes other metrics like accuracy at a minimum of 80 percent correct if the model guesses all players to not be jungle. Thus, choosing F1-score over accuracy would provide a good evaluation of the model despite the "unbalanced" representation in the data set.
+
+Since this is a classification problem, our prediction model will use a Decision Tree classification algorithm. To prepare the data for this model, we will create a new copy of the dataframe with a new column 'is_jungle' that has 0s and 1s that denote whether or not a player is in the jungle position (1 for is jungle, 0 for isn't). Furthermore, we need to standardize each of the metrics used. This will be done in the algorithm pipeline.
+
+The data will be split into two different parts: 75% training data and 25% test data (indicated by test_size = 0.25). At the time of prediction, we only know the 'gamelength', 'totalgold', 'kills', 'deaths', 'assists', 'damagetochampions', 'minionkills', 'monsterkills', 'total cs', 'goldat25', and 'gold_bins'information for each of the observations. The model will be trained primarily on the 'totalgold', 'minionkills', 'damagetochampions', 'monsterkils' columns.
+
+
+### Baseline Model
+
+The baseline model uses a Decision Tree Classifier with the features 'totalgold' and 'minionkills'. Both of these metrics are quantitative, 'minionkills' being discrete and 'totalgold' being continuous. The model pipeline uses StandardScaler transformer to standardize each of the metrics based on the length of each game. This is important because, typically, a longer match means more time to accumulate certain metrics. The decision tree classifier of the baseline model only uses a maximum depth of 2.
+
+After fitting the data, and making predictions, the classification report shows that the **accuracy of the model is 91%** which is extremely high. However, with **precision scores of 94%** for non-junglers but **only 78% for junglers**, the model shows **significantly worse performance in identifying junglers**. This supports the idea that F1-score should be the primary metric of evaluating the model. The report shows the **F1-score to be 76%** which reflects decent model performance! This model is good but can still be improved upon through increasing model complexity.
+
+### Final Model
+
+To improve upon the baseline model, we changed the model to a Random Forest Classifier with two new features engineered from prior information. One new feature is the 'monster-to-minion kill ratio', which is the quotient of 'monsterkills' divided by 'minionkills'. The next new feature is 'damage per gold', which is 'damagetochampions' divided by 'totalgold'. These features are relevant because jungle positions obtain most of their farm from monsters. This makes players with higher monster-to-minion kill ratios more likely to be jungle players. Furthermore, most jungle champions are designed to be high-damaging characters that farm less late game and carry team fights. Players with high gold efficiency, determined by higher damage-to-gold ratios are more likely to be jungle. 
+
+These two new features are both quantitative features. However, the distributions do not appear to be normal. A QuantileTransformer is used to normalize the distribution. 
 

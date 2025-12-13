@@ -32,5 +32,11 @@ Here is an introduction to the key columns of focus that will be used to answer 
 - 'goldat25': Measures the total amount of gold a player reaches at 25 minutes of the game. Contains floating-point values.
 - 'gold_bins': Column created based on 'totalgold' to cut the dataset into gold range categories of 3k (0-3k, 3k-6k, etc) with the right-hand value not being included. This column includes strings that represent categories later used in bivariate analyses.
 
-## Cleaning Up the Data for the Analyses
-There are 929,720 rows and 18 columns in our cleaned data
+## Data Cleaning and Exploratory Data Analysis
+
+### Data Cleaning
+To begin preparing our dataset, we first keep only relevant columns of the original dataset, as well as the 'participantid' column, to drop any rows that do not represent an individual player. In the original dataset, these rows have 'participantid' values of either 100 or 200. After dropping those rows, drop the 'participantid' column. These rows are dropped since our analyses only involve individual player metrics.
+
+After this step of cleaning up the dataset, there are 929,720 rows and 12 columns. However, since scatter plots including nearly a million values of data were very difficult to load/read, a new categorical column was created - 'gold_bins'. To create this column, the 'totalgold' column was cut using pandas into bins of size 3,000, and each player was assigned to their corresponding range.
+
+The cleaned and prepared dataset contains 929720 rows and 13 columns. Below is the head of the dataframe...

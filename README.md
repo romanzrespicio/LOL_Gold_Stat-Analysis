@@ -52,4 +52,10 @@ The cleaned and prepared dataset contains 929720 rows and 13 columns. Below is t
 
 </div>
 
+The cleaned dataset contains only the relevant columns which will be used in **hypothesis testing**, testing for **missingness**, and the **prediction model**. Depending on the type of analysis, the dataframe will be further altered to comply to any necessary steps (e.g. one-hot encoding the position column for prediction model).
+
+## Univariate Analysis - Gold
+
+Univariate analysis was first performed on the 'totalgold' column of our dataset.
+
 
